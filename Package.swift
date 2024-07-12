@@ -1,3 +1,4 @@
+// swift-tools-version: 5.10
 //
 //  Package.swift
 //  RxCoreStore
@@ -22,7 +23,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 //
-// swift-tools-version: 5.10
+
 
 import PackageDescription
 
@@ -45,11 +46,11 @@ let package = Package(
     dependencies: [
         .Package(
             url: "https://github.com/JohnEstropia/CoreStore.git",
-            "8.0.0"
+            "9.2.0"
         ),
         .Package(
             url: "https://github.com/ReactiveX/RxSwift.git",
-            "6.1.0"
+            "6.7.1"
         )
     ],
     exclude: ["Carthage", "RxCoreStoreDemo", "Sources/libA/images"]
