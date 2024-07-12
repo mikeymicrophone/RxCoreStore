@@ -23,6 +23,8 @@
 //  SOFTWARE.
 //
 
+//swift-tools-version:5.3
+
 import PackageDescription
 
 let targets: [Target]
