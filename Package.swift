@@ -1,4 +1,4 @@
-// swift-tools-version: 5.10
+// swift-tools-version: 5.7
 //
 //  Package.swift
 //  RxCoreStore
@@ -50,9 +50,8 @@ let package = Package(
             name: "RxCoreStore",
             dependencies: [
                 "CoreStore",
-                "RxSwift"
+                .product(name: "RxSwift", package: "RxSwift")
             ]
         )
-    ],
-    exclude: ["Carthage", "RxCoreStoreDemo", "Sources/libA/images"]
+    ]
 )
