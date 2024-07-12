@@ -27,30 +27,31 @@
 
 import PackageDescription
 
-let targets: [Target]
-#if os(iOS)
-targets = [Target(name: "RxCoreStore iOS")]
-#elseif os(OSX)
-targets = [Target(name: "RxCoreStore OSX")]
-#elseif os(watchOS)
-targets = [Target(name: "RxCoreStore watchOS")]
-#elseif os(tvOS)
-targets = [Target(name: "RxCoreStore tvOS")]
-#else
-targets = []
-#endif
-
 let package = Package(
     name: "RxCoreStore",
-    targets: targets,
+    platforms: [
+        .iOS(.v13),
+        .macOS(.v10_15),
+        .watchOS(.v6),
+        .tvOS(.v13)
+    ],
+    products: [
+        .library(
+            name: "RxCoreStore",
+            targets: ["RxCoreStore"]
+        )
+    ],
     dependencies: [
-        .Package(
-            url: "https://github.com/JohnEstropia/CoreStore.git",
-            "9.2.0"
-        ),
-        .Package(
-            url: "https://github.com/ReactiveX/RxSwift.git",
-            "6.7.1"
+        .package(url: "https://github.com/JohnEstropia/CoreStore.git", exact: "9.2.0"),
+        .package(url: "https://github.com/ReactiveX/RxSwift.git", exact: "6.7.1")
+    ],
+    targets: [
+        .target(
+            name: "RxCoreStore",
+            dependencies: [
+                "CoreStore",
+                "RxSwift"
+            ]
         )
     ],
     exclude: ["Carthage", "RxCoreStoreDemo", "Sources/libA/images"]
